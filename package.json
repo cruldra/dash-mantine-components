@@ -1,20 +1,20 @@
 {
-    "name": "dash_mantine_components",
+    "name": "dongjak_dash_mantine_components",
     "version": "0.14.3",
     "description": "Plotly Dash Components based on Mantine",
     "main": "index.ts",
     "repository": {
         "type": "git",
-        "url": "git://github.com/snehilvj/dash-mantine-components.git"
+        "url": "https://github.com/cruldra/dash-mantine-components.git"
     },
     "bugs": {
-        "url": "https://github.com/snehilvj/dash-mantine-components/issues"
+        "url": "https://github.com/cruldra/dash-mantine-components/issues"
     },
-    "homepage": "https://github.com/snehilvj/dash-mantine-components",
+    "homepage": "https://github.com/cruldra/dash-mantine-components",
     "scripts": {
         "build:js::dev": "webpack --mode development",
         "build:js": "webpack",
-        "build:backends": "dash-generate-components ./src/ts/components dash_mantine_components -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\.test\\.",
+        "build:backends": "dash-generate-components ./src/ts/components dongjak_dash_mantine_components -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\.test\\.",
         "build": "npm run build:js && npm run build:backends",
         "watch": "npm run build:js::dev -- --watch"
     },
