@@ -1,6 +1,6 @@
 {
     "name": "dongjak_dash_components",
-    "version": "0.14.4",
+    "version": "0.14.5",
     "description": "Plotly Dash Components based on Mantine",
     "main": "index.ts",
     "repository": {
@@ -14,7 +14,7 @@
     "scripts": {
         "build:js::dev": "webpack --mode development",
         "build:js": "webpack",
-        "build:backends": "dash-generate-components ./src/ts/components dongjak-dash-components -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\\\.test\\\\.",
+        "build:backends": "dash-generate-components ./src/ts/components dongjak_dash_components -p package-info.json --r-prefix '' --jl-prefix '' --ignore \\\\.test\\\\.",
         "build": "npm run build:js && npm run build:backends",
         "watch": "npm run build:js::dev -- --watch"
     },
