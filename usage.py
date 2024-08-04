@@ -6,6 +6,7 @@ import dongjak_dash_components as dmc
 from dash_iconify import DashIconify
 
 from demos.date_picker import simple_ui as date_picker_simple_ui
+from demos.function_call import ui as function_call_ui
 
 
 def get_icon(icon):
@@ -36,6 +37,17 @@ menus = html.Div(
                     label="日期选择框",
                     leftSection=get_icon(icon="iconoir:user"),
                     href="/date-picker",
+                )
+            ],
+        ),
+        dmc.NavLink(
+            label="布局",
+            leftSection=get_icon(icon="iconoir:user"),
+            children=[
+                dmc.NavLink(
+                    label="函数调用",
+                    leftSection=get_icon(icon="iconoir:user"),
+                    href="/function-call",
                 )
             ],
         )
@@ -102,7 +114,9 @@ app.layout = dmc.MantineProvider(
 def display_page(pathname):
     if pathname == '/date-picker':
         return date_picker_simple_ui
+    elif pathname == '/function-call':
+        return function_call_ui
 
 
 if __name__ == '__main__':
-    app.run(debug=os.getenv("DEBUG", "True").lower() == "true")
+    app.run(debug=os.getenv("DEBUG", "True").lower() == "true", port=8090)
