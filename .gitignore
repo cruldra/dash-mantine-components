@@ -296,10 +296,9 @@ src/jl
 Project.toml
 
 # dash-mantine-components artifacts
-dongjak_dash_mantine_components/*
-!dongjak_dash_mantine_components/__init__.py
-!dongjak_dash_mantine_components/theme.py
-!dongjak_dash_mantine_components/styles.py
-!dongjak_dash_mantine_components/scripts.py
-usage.py
+dongjak_dash_components/*
+!dongjak_dash_components/__init__.py
+!dongjak_dash_components/theme.py
+!dongjak_dash_components/styles.py
+!dongjak_dash_components/scripts.py
 .idea
