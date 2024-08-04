@@ -20,12 +20,7 @@ stylesheets = [
     "https://unpkg.com/@mantine/notifications@7/styles.css",
     "https://unpkg.com/@mantine/nprogress@7/styles.css",
 ]
-scripts = [
-    "https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.8/dayjs.min.js",
-    "https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.8/locale/zh-cn.min.js",
-    # "https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.8/locale/ru.min.js",
-]
-app = Dash(__name__, external_stylesheets=stylesheets, external_scripts=scripts, suppress_callback_exceptions=True)
+app = Dash(__name__, external_stylesheets=stylesheets, suppress_callback_exceptions=True)
 server = app.server
 menus = html.Div(
     style={"width": 240,

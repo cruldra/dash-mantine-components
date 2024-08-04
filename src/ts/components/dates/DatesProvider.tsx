@@ -3,6 +3,7 @@ import {
     DatesProvider as MantineDatesProvider,
 } from "@mantine/dates";
 import dayjs from "dayjs";
+import 'dayjs/locale/zh-cn';
 import React, { useEffect } from "react";
 
 interface Props extends DatesProviderProps {
@@ -15,14 +16,14 @@ interface Props extends DatesProviderProps {
 /** DatesProvider */
 const DatesProvider = (props: Props) => {
     const { settings, children, setProps, ...others } = props;
-    const { locale } = settings;
+    // const { locale } = settings;
 
-    useEffect(() => {
-        const localeObject = window[`dayjs_locale_${locale}`];
-        if (localeObject) {
-            dayjs.locale(locale, localeObject);
-        }
-    }, [locale]);
+    // useEffect(() => {
+    //     const localeObject = window[`dayjs_locale_${locale}`];
+    //     if (localeObject) {
+    //         dayjs.locale(locale, localeObject);
+    //     }
+    // }, [locale]);
 
     return (
         <MantineDatesProvider settings={settings} {...others}>
