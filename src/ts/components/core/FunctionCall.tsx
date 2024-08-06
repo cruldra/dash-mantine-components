@@ -49,6 +49,9 @@ const FunctionCall: FC<Props> = ({
                 flexDirection: "column",
                 rowGap: "1rem",
                 flex: 1,
+                justifyContent: "flex-start",
+                alignItems: "center",
+                margin: "10px",
             }}>
                 {outputs}
             </div>
