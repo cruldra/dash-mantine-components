@@ -1,0 +1,1 @@
+powershell.exe -ExecutionPolicy ByPass -NoExit -Command "& 'd:\ProgramData\miniconda3\shell\condabin\conda-hook.ps1' ; conda activate aider;cd D:/Workspace/aiworld/py_automation;aider --model deepseek/deepseek-coder"
