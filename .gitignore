@@ -280,7 +280,7 @@ Manifest.toml
 JuliaManifest.toml
 
 .DS_Store
-.vscode
+# .vscode
 
 # R build artifacts
 inst
