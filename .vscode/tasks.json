@@ -14,6 +14,20 @@
                 "showReuseMessage": true,
                 "clear": false
             }
-        }
+        },
+        {
+            "label": "构建",
+            "detail": "Prepare some ENV variables for the deployment",
+            "type": "shell",
+            "command": "npm run build", 
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
     ]
 }

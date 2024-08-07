@@ -7,6 +7,7 @@ import dongjak_dash_components as dmc
 
 simple_ui = html.Div(
     [
+          dmc. UsernamePasswordLogin(),
         dmc.DatePicker(
             id="date-picker-input",
             label="Start Date",

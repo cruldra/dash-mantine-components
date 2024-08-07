@@ -119,4 +119,5 @@ def display_page(pathname):
 
 
 if __name__ == '__main__':
+    os.environ["REACT_VERSION"] = "18.2.0"
     app.run(debug=os.getenv("DEBUG", "True").lower() == "true", port=8090)

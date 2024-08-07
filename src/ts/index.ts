@@ -145,6 +145,7 @@ import NavigationProgress from "./components/extensions/nprogress/NavigationProg
 import NavigationProgressProvider from "./components/extensions/nprogress/NavigationProgressProvider";
 import MantineProvider from "./components/styles/MantineProvider";
 import FunctionCall from "./components/core/FunctionCall";
+import UsernamePasswordLogin from "./components/core/authentication/UsernamePasswordLogin";
 // import ChipGroup from "./components/core/chip/ChipGroup";
 
 export {
@@ -294,5 +295,6 @@ export {
     Tooltip,
     UnstyledButton,
     VisuallyHidden,
-    FunctionCall
+    FunctionCall,
+    UsernamePasswordLogin
 };
