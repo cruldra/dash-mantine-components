@@ -1,6 +1,6 @@
 {
     "name": "dongjak_dash_components",
-    "version": "0.14.10",
+    "version": "0.14.11",
     "description": "Plotly Dash Components based on Mantine",
     "main": "index.ts",
     "repository": {
@@ -47,6 +47,7 @@
         "@mantine/code-highlight": "^7.11.2",
         "@mantine/core": "^7.11.2",
         "@mantine/dates": "^7.11.2",
+        "@mantine/form": "^7.12.0",
         "@mantine/hooks": "^7.11.2",
         "@mantine/notifications": "^7.11.2",
         "@mantine/nprogress": "^7.11.2",

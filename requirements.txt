@@ -6,3 +6,4 @@ dash_iconify
 setuptools~=72.1.0
 Flask~=3.0.3
 notebook
+twine

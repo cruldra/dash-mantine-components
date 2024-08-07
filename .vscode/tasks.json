@@ -17,9 +17,35 @@
         },
         {
             "label": "构建",
-            "detail": "Prepare some ENV variables for the deployment",
             "type": "shell",
             "command": "npm run build", 
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "构建和发布",
+            "detail": "提前在package.json中更新一下版本号",
+            "type": "shell",
+            "command": "npm run build;python setup.py sdist;twine upload -u cruldra -p pypi-AgEIcHlwaS5vcmcCJDM4OGM4OTBkLTczNGMtNDA2NC1hN2I2LTRmODYzYTYzMjE5YwACKlszLCJlNjQ4YTUxZS1jZjEzLTRhNWUtOGJlNS03Mzk3YzVhMDIwMDAiXQAABiBO_4P7O2M9_055mmhhFSHvjcFRn3vsiD9MYty2VU4Eiw dist/*", 
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "label": "前端开发",
+            "type": "shell",
+            "command": "npm run watch", 
             "presentation": {
                 "echo": true,
                 "reveal": "always",

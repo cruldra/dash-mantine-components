@@ -5,64 +5,9 @@ from dash import html, dcc
 import json
 import hashlib
 import dongjak_dash_components as ddc
-app = Flask(__name__, instance_relative_config=False)
+from dongjak_dash_components.auth_plugin import create_auth_app
+flask_server = Flask(__name__, instance_relative_config=False)
 
-#region  用于认证的Dash应用
-auth_app = dash.Dash(
-        server=app ,
-          routes_pathname_prefix="/auth/",
-    )
-auth_app.layout =  ddc.MantineProvider(
-   ddc. UsernamePasswordLogin()
-)
- 
-
-@auth_app.callback(
-    dash.dependencies.Output ('url', 'pathname'),
-    dash.dependencies.Input('submit-button', 'n_clicks'),
-    dash.dependencies.State('username-input', 'value'),
-    dash.dependencies.State('password-input', 'value')
-)
-def update_output(n_clicks, username, password):
-    if n_clicks > 0:
-        token = login(username, password)
-        a =f"token={token}"
-        print(a)
-        if token is None:
-            return 'Unauthorized'
-        #response = app.make_response(redirect('/app/'))
-        #response.set_cookie('token', token)
-        return "/app/"
-    return 'Submit'
-
-#endregion
-
-
-# region 全局请求拦截器 
-# @app.before_request
-# def before_request_func():
-    # 1. 如果请求的是 /login 且 方法是GET，则直接返回
-    # if request.path.startswith('/auth/') :
-    #     return
-    # if request.path == '/login/' and request.method == 'GET':
-    #     return
-
-    # # 2. 如果请求的是/login 且方法是POST，则从request.form中获取用户名和密码，然后调用 login 函数进行登录验证,返回一个token，通过cookie的方式返回给客户端
-    # if request.path == '/login' and request.method == 'POST':
-    #     username = request.form.get('username')
-    #     password = request.form.get('password')
-    #     token = login(username, password)
-    #     if token is None:
-    #         return 'Unauthorized', 401
-    #     response = app.make_response(redirect('/'))
-    #     response.set_cookie('token', token)
-    #     return response
-
-    # 3. 如果请求的是其他路径，则判断cookie中是否有token，如果没有则返回401，如果有则继续执行
-    # if 'token' not in request.cookies:
-    #     return 'Unauthorized', 401
-
-# endregion
 
 def login(username, password):
     if  username=="dongjak" and  password == '123394':
@@ -73,9 +18,14 @@ def login(username, password):
         hashed_user_info = hashlib.md5(user_info_json.encode()).hexdigest()
         return hashed_user_info
 
+flask_server =create_auth_app(flask_server, login, auth_app_routes_pathname_prefix="/auth/", main_app_routes_pathname_prefix="/app/", login_url="/login")
+ 
+
+
+
 #region 用于主应用的Dash应用
 main_app = dash.Dash(
-        server=app,
+        server=flask_server,
         routes_pathname_prefix="/app/",
     )
 main_app.layout = html.Div(
@@ -94,6 +44,15 @@ main_app.layout = html.Div(
         html.Div(id='output-state'),
     ]
 )
+
+@main_app.callback(
+    dash.dependencies.Output('output-state', 'children'),
+    dash.dependencies.Input('submit-button-state', 'n_clicks') 
+)
+def update_output(n_clicks):
+    session_id = request.cookies.get('sessionId')
+    msg = f"当前会话ID是{session_id}"
+    return msg
 #endregion
 
 # @app.route('/')
@@ -108,4 +67,4 @@ main_app.layout = html.Div(
 
 if __name__ == '__main__':
     os.environ["REACT_VERSION"] = "18.2.0"
-    app.run(host='0.0.0.0', debug=True)
+    flask_server.run(host='0.0.0.0', debug=True)

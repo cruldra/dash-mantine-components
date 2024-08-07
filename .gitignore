@@ -301,5 +301,6 @@ dongjak_dash_components/*
 !dongjak_dash_components/theme.py
 !dongjak_dash_components/styles.py
 !dongjak_dash_components/scripts.py
+!dongjak_dash_components/auth_plugin.py
 .idea
 .aider*
