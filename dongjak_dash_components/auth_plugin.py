@@ -10,7 +10,16 @@ def create_auth_app(flask_server:Flask,
                     main_app_routes_pathname_prefix:str="/app/",
                     login_url:str="/login" 
                     ):
+    """
+    创建一个用于登录验证的`Dash`应用
 
+    :param flask_server: 一个`Flask`应用
+    :param login_handler: 一个用于登录验证的函数，接受两个参数，用户名和密码，返回一个`str`类型的token
+    :param auth_app_routes_pathname_prefix: 用于登录验证的`Dash`应用的路由前缀
+    :param main_app_routes_pathname_prefix: 用于主应用的`Dash`应用的路由前缀
+    :param login_url: 用于登录验证的`Dash`应用的路由
+    :return: 一个`Flask`应用
+    """
     with flask_server.app_context():
         auth_app = dash.Dash( server=flask_server , routes_pathname_prefix=auth_app_routes_pathname_prefix, )
         auth_app.layout =  ddc.MantineProvider(

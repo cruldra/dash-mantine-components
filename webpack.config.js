@@ -5,8 +5,11 @@ const packagejson = require('./package.json');
 const dashLibraryName = packagejson.name.replace(/-/g, '_');
 
 module.exports = function(env, argv) {
+    // 模式
     const mode = (argv && argv.mode) || 'production';
+    // 入口文件
     const entry = [path.join(__dirname, 'src/ts/index.ts')];
+    // 输出配置
     const output = {
         path: path.join(__dirname, dashLibraryName),
         filename: `${dashLibraryName}.js`,
@@ -14,6 +17,7 @@ module.exports = function(env, argv) {
         libraryTarget: 'umd',
     }
 
+    // 外部依赖配置
     const externals = {
         react: {
             commonjs: 'react',
@@ -32,11 +36,11 @@ module.exports = function(env, argv) {
     };
 
     return {
-        output,
-        mode,
-        entry,
+        output, // 输出配置
+        mode, // 模式
+        entry, // 入口文件
         target: 'web',
-        externals,
+        externals, // 外部依赖配置
         resolve: {
             extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
         },

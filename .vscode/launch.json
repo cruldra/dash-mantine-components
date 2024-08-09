@@ -5,23 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flask_usage",
+            "name": "Python 调试程序: 当前文件",
             "type": "debugpy",
             "request": "launch",
-            "module": "flask",
             "env": {
-                "PYTHONPATH": "${workspaceRoot}/",
-                "FLASK_APP": "${workspaceRoot}/flask_usage.py",
-                "FLASK_ENV": "development",
-                "FLASK_DEBUG": "1",
-                "REACT_VERSION": "18.2.0",
+                "PYTHONPATH": "${workspaceFolder}",
+                "REACT_VERSION": "18.2.0"
             },
-            "args": [
-                "run",
-            ],
+            "program": "${file}",
+            "console": "integratedTerminal"
         }
-
-        
-       
     ]
 }
